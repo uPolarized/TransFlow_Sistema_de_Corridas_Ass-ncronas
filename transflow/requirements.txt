@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+pymongo
+redis
+aio_pika
+pydantic
+python-dotenv

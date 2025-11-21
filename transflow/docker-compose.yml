@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: transflow_app
+    env_file: ./app/.env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+      - redis
+      - rabbitmq
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+  consumer:
+    build: .
+    container_name: transflow_consumer
+    env_file: ./app/.env
+    depends_on:
+      - mongo
+      - redis
+      - rabbitmq
+    command: ["python", "consumer.py"]
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:6.0
+    container_name: transflow_mongo
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+
+  redis:
+    image: redis:7
+    container_name: transflow_redis
+    ports:
+      - "6379:6379"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: transflow_rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "check_running"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+volumes:
+  mongo_data:

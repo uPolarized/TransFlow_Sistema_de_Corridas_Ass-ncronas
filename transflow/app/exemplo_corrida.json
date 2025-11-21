@@ -1,0 +1,15 @@
+{
+  "id_corrida": "abc123",
+  "passageiro": {
+    "nome": "Joao",
+    "telefone": "99999-1111"
+  },
+  "motorista": {
+    "nome": "Carla",
+    "nota": 4.8
+  },
+  "origem": "Centro",
+  "destino": "Inoa",
+  "valor_corrida": 35.5,
+  "forma_pagamento": "DigitalCoin"
+}
