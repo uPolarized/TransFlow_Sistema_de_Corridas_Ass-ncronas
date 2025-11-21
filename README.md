@@ -53,7 +53,7 @@ http://localhost:15672
 user: admin  
 pass: admin
 
-## 4. Captura de Tela
+## 4. Capturas de Tela
 ![RabbitMQ](./images/criar_corrida.png)
 ![RabbitMQ](./images/lista_corrida.png)
 ![RabbitMQ](./images/rabbit_mq.png)
