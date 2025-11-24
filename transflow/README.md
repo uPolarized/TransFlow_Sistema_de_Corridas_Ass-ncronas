@@ -54,8 +54,8 @@ user: admin
 pass: admin
 
 ## 4. Capturas de Tela
-![RabbitMQ](./images/criar_corrida.png)
-![RabbitMQ](./images/lista_corrida.png)
-![RabbitMQ](./images/rabbit_mq.png)
+![RabbitMQ](../images/criar_corrida.png)
+![RabbitMQ](../images/lista_corrida.png)
+![RabbitMQ](../images/rabbit_mq.png)
 
 
